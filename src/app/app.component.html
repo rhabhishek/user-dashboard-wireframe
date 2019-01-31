@@ -1,20 +1,277 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div class="container-fluid p-0">
+  <div class="top-bar pt-2 pl-3 pb-2 pr-2">
+    <img src="http://sunsweet.com/img/pngs/logo.png" alt="Sunsweet">
+  </div>
+  <div class="main-section row m-0">
+    <div class="col-md-2 card left-section">
+      <div class="profile-picture text-center">
+        <img src="../assets/images/300.jpg" class="profile-pic" alt="Charles Lyons">
+        <div class="h3 mt-3">Charles Lyons</div>
+        <div>Assistant Director</div>
+      </div>
+      <hr>
+      <div class="text-white font-italic text-justify small">
+        <div class="card bg-dark p-4 ">
+          <span><span class="fa fa-fw fa-phone mr-1"></span>(132) 456-7890</span>
+          <span><span class="fa fa-fw fa-envelope-o mr-1"></span>clyons@sunsweet.com</span>
+          <!--Charles Lyons is an Assitant Director at XYZ Bank, where Lorie processes loan applications from start to finish, including mortgage refinancing and educating clients about their different financing options.-->
+        </div>
+      </div>
+      <hr>
+      <div class="links-section text-left">
+        <div class="links text-secondary">
+          <div [class.active]="isSelected('overview')" (click)="selectThis('overview')">
+            <span class="fa fa-fw mr-4" [ngClass]="isSelected('overview')? 'fa-user': 'fa-user-o'"></span>
+            Overview
+          </div>
+          <div [class.active]="isSelected('notes')" (click)="selectThis('notes')">
+            <span class="fa fa-fw mr-4"
+                  [ngClass]="isSelected('notes')? 'fa-sticky-note': 'fa-sticky-note-o'"></span>
+            Notes <span class="float-right badge-pill count">14</span>
+          </div>
+          <div [class.active]="isSelected('edit')" (click)="selectThis('edit')">
+            <span class="fa fa-fw mr-4" [ngClass]="isSelected('edit')? 'fa-pencil': 'fa-pencil'"></span>
+            Edit Profile
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-9 ml-2 ">
+      <div [ngSwitch]="selected">
+        <div class="card p-4 details-section" *ngSwitchCase="'overview'">
+          <div>
+            <span class="h2 text-muted border-underline">Overview</span>
+            <span class="btn btn-outline-dark float-right"><span class="fa fa-fw fa-pencil mr-2"></span>Edit</span>
+          </div>
+          <!--<hr>-->
+          <div class="text-dark mt-4">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores atque consequatur
+            deserunt dolor dolorem
+            eaque ex ipsum laborum maiores, mollitia nobis repellat similique soluta velit voluptas. Deserunt impedit
+            repellat voluptatum!
+          </div>
+          <h4 class="mt-4 text-muted">Contact Information</h4>
+          <hr>
+          <div class="row m-0 pl-4">
+            <table class="col-md-6">
+              <tr>
+                <td>First Name</td>
+                <td>Charles</td>
+              </tr>
+              <tr>
+                <td>Last Name</td>
+                <td>Lyons</td>
+              </tr>
+              <tr>
+                <td>Phone</td>
+                <td>(132) 456-7890</td>
+              </tr>
+              <tr>
+                <td>Work</td>
+                <td>(012) 345-6789</td>
+              </tr>
+              <tr>
+                <td>Email</td>
+                <td>clyons@sunsweet.com</td>
+              </tr>
+              <tr>
+                <td>Location</td>
+                <td>Novi- Branch Office</td>
+              </tr>
+              <tr>
+                <td>Mailing Address</td>
+                <td>123 Lyons St, Novi, MI - 48374</td>
+              </tr>
+            </table>
+          </div>
 
+          <div class="h4 mt-4 text-muted">Recent</div>
+          <hr>
+          <div class="recent-section row p-0">
+            <div class="col-md-3" *ngFor="let item of [1,2,3,4]">
+              <div class="card p-2 mt-2">
+                <div class="font-weight-bold pt-2">
+                  <span class="fa fa-fw fa-sticky-note-o mr-2 text-warning"></span>Note {{item}}
+                </div>
+                <hr>
+                <div class="card-body">
+                  <span class="small font-weight-light text-justify">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Ab amet dicta eius eligendi eveniet explicabo ipsam natus,
+                    neque nobis non nulla omnis quasi sunt.
+                  </span>
+                </div>
+                <div class="small text-muted p-1">
+                  <span>22 Jan 2018 02:34 PM</span>
+                  <span class="float-right">Added By <b>John Doe</b></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div *ngSwitchCase="'notes'" class="card p-4 details-section">
+          <div>
+            <span class="h2 border-underline text-muted">Notes</span>
+            <span class="btn btn-outline-dark float-right"><span class="fa fa-fw fa-plus mr-2"></span>Add Note</span>
+          </div>
+          <!--<hr>-->
+          <ngb-accordion [closeOthers]="true" activeIds="static-1" class="mt-4">
+            <ngb-panel id="static-1">
+              <ng-template ngbPanelTitle>
+                <div class="btn-block">Stack 1 <span class="float-right small text-muted">Last Updated 22 Jan 2018 02:34 PM</span></div>
+              </ng-template>
+              <ng-template ngbPanelContent>
+                <div class="row">
+                  <div class="col-md-2" *ngFor="let item of [1,2,3,4,5,6]">
+                    <div class="card p-2 mt-2 card-border">
+                      <div class="font-weight-bold pt-2">
+                        <span class="fa fa-fw fa-file-photo-o mr-2 text-primary"></span>Image {{item}}
+                      </div>
+                      <hr>
+                      <div class="card-body text-center">
+                        <span class="fa fa-fw fa-3x fa-file-photo-o"></span>
+                      </div>
+                      <div class="small text-muted p-1 text-center">
+                        <span>22 Jan 2018 02:34 PM</span>
+                        <div class="">Added By <b>John Doe</b></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ng-template>
+            </ngb-panel>
+            <ngb-panel id="static-2" title="Stack 2">
+              <ng-template ngbPanelContent>
+                <div class="row">
+                  <div class="col-md-3" *ngFor="let item of [1,2,3,4]">
+                    <div class="card p-2 mt-2 card-border">
+                      <div class="font-weight-bold pt-2">
+                        <span class="fa fa-fw fa-sticky-note-o mr-2 text-warning"></span>Note {{item}}
+                      </div>
+                      <hr>
+                      <div class="card-body">
+                  <span class="small font-weight-light text-justify">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Ab amet dicta eius eligendi eveniet explicabo ipsam natus,
+                    neque nobis non nulla omnis quasi sunt.
+                  </span>
+                      </div>
+                      <div class="small text-muted p-1">
+                        <span>22 Jan 2018 02:34 PM</span>
+                        <span class="float-right">Added By <b>John Doe</b></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ng-template>
+            </ngb-panel>
+            <ngb-panel id="static-3" title="Stack 3">
+              <ng-template ngbPanelContent>
+                <div class="row">
+                  <div class="col-md-3" *ngFor="let item of [1,2,3,4]">
+                    <div class="card p-2 mt-2 card-border">
+                      <div class="font-weight-bold pt-2">
+                        <span class="fa fa-fw fa-sticky-note-o mr-2 text-warning"></span>Note {{item}}
+                      </div>
+                      <hr>
+                      <div class="card-body">
+                  <span class="small font-weight-light text-justify">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Ab amet dicta eius eligendi eveniet explicabo ipsam natus,
+                    neque nobis non nulla omnis quasi sunt.
+                  </span>
+                      </div>
+                      <div class="small text-muted p-1">
+                        <span>22 Jan 2018 02:34 PM</span>
+                        <span class="float-right">Added By <b>John Doe</b></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ng-template>
+            </ngb-panel>
+          </ngb-accordion>
+        </div>
+        <div *ngSwitchCase="'edit'" class="card p-4 details-section">
+
+          <div>
+            <span class="h2 border-underline text-muted">Edit Profile</span>
+          </div>
+          <!--<hr>-->
+          <form class="mt-4">
+            <div class="row">
+              <div class="form-group col-md-6">
+                <label for="fname">First Name</label>
+                <input type="email" class="form-control" id="fname" aria-describedby="fnameHelp"
+                       placeholder="Enter First Name" autocomplete="off">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="lname">Last Name</label>
+                <input type="email" class="form-control" id="lname" aria-describedby="lnameHelp"
+                       placeholder="Enter Last Name" autocomplete="off">
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-12">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                       placeholder="Enter Email" autocomplete="off">
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-6">
+                <label for="phone">Phone</label>
+                <input type="text" class="form-control" id="phone" placeholder="Phone" autocomplete="off">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="work">Work Phone</label>
+                <input type="text" class="form-control" id="work" placeholder="Work Phone" autocomplete="off">
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-12">
+                <label for="location">Location</label>
+                <input type="text" class="form-control" id="location" aria-describedby="emailHelp"
+                       placeholder="Enter Location" autocomplete="off">
+              </div>
+            </div>
+            <div class="row">
+              <!--<div class="col-md-12">Mailing Address</div>-->
+              <div class="form-group col-md-6">
+                <label for="line1">Line 1</label>
+                <input type="text" class="form-control" id="line1" placeholder="Line 1" autocomplete="off">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="line2">Line 2</label>
+                <input type="text" class="form-control" id="line2" placeholder="Line 2" autocomplete="off">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="city">City</label>
+                <input type="text" class="form-control" id="city" placeholder="City" autocomplete="off">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="line1">County</label>
+                <input type="text" class="form-control" id="county" placeholder="County" autocomplete="off">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="zipcode">Zip Code</label>
+                <input type="text" class="form-control" id="zipcode" placeholder="Zip Code" autocomplete="off">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="state">State</label>
+                <input type="text" class="form-control" id="state" placeholder="State" autocomplete="off">
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-12">
+                <button type="reset" class="btn btn-outline-secondary mr-2">Reset</button>
+                <button type="submit" class="btn btn-outline-primary">Submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

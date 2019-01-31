@@ -1,0 +1,76 @@
+.container-fluid {
+  //background: #EFEFEF;
+  height: 100vh;
+}
+
+.top-bar {
+  -webkit-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.38);
+  -moz-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.38);
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.38);
+  //background: white;
+
+}
+
+.main-section {
+  z-index: -1;
+  // color: #00377B;
+  padding: 2em 2em 1em 2em;
+  .left-section {
+    padding-top: 3em;
+    height: 85vh;
+
+    .profile-pic {
+      border-radius: 100% !important;
+      border: 2px solid #FCAD56;
+      padding: 5px;
+      width: 15em;
+    }
+
+    .links-section {
+      margin-top: 1em;
+      .links {
+        div {
+          width: 100% !important;
+          cursor: pointer;
+          //border-bottom: 1px solid #B9B9B9;
+          padding: 0.75em;
+          //font-weight: bold;
+          border-left: 3px solid transparent;
+
+          &.active {
+            border-left: 3px solid #EF8C02;
+            background-color: #FFFCF9;
+            color: #EF8C02 !important;
+            .fa {
+              color: #EF8C02 !important;
+            }
+
+            & .count {
+              /*background-color: #00377B;
+              color: white;*/
+              border: 1px solid #EF8C02;
+            }
+          }
+          &:last-child {
+            border-bottom: none;
+          }
+          & .count {
+            /*background-color: #00377B;
+            color: white;*/
+            border: 1px solid #868e96;
+          }
+        }
+      }
+    }
+  }
+  .details-section {
+    height: 85vh !important;
+  }
+
+  .card-border {
+      border: 1px solid rgba(0,0,0,.125) !important;
+  }
+  .border-underline {
+    border-bottom: 3px solid #EF8C02;
+  }
+}
