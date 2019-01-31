@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "sun-sweet-wireframe": {
+    "user-dashboard-wireframe": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -36,7 +36,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/sun-sweet-wireframe",
+            "outputPath": "dist/user-dashboard-wireframe",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -83,18 +83,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "sun-sweet-wireframe:build"
+            "browserTarget": "user-dashboard-wireframe:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "sun-sweet-wireframe:build:production"
+              "browserTarget": "user-dashboard-wireframe:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "sun-sweet-wireframe:build"
+            "browserTarget": "user-dashboard-wireframe:build"
           }
         },
         "test": {
@@ -128,7 +128,7 @@
         }
       }
     },
-    "sun-sweet-wireframe-e2e": {
+    "user-dashboard-wireframe-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -137,11 +137,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "sun-sweet-wireframe:serve"
+            "devServerTarget": "user-dashboard-wireframe:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "sun-sweet-wireframe:serve:production"
+              "devServerTarget": "user-dashboard-wireframe:serve:production"
             }
           }
         },
@@ -157,5 +157,5 @@
       }
     }
   },
-  "defaultProject": "sun-sweet-wireframe"
+  "defaultProject": "user-dashboard-wireframe"
 }
